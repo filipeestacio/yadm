@@ -1,0 +1,96 @@
+{
+  "mcpServers": {
+    "email-mucl": {
+      "command": "uvx",
+      "args": ["mcp-email-server@latest", "stdio"],
+      "env": {
+        "MCP_EMAIL_SERVER_ACCOUNT_NAME": "${MCP_EMAIL_SERVER_ACCOUNT_NAME}",
+        "MCP_EMAIL_SERVER_FULL_NAME": "${MCP_EMAIL_SERVER_FULL_NAME}",
+        "MCP_EMAIL_SERVER_EMAIL_ADDRESS": "${MCP_EMAIL_SERVER_EMAIL_ADDRESS}",
+        "MCP_EMAIL_SERVER_USER_NAME": "${MCP_EMAIL_SERVER_USER_NAME}",
+        "MCP_EMAIL_SERVER_PASSWORD": "${MCP_EMAIL_SERVER_PASSWORD}",
+        "MCP_EMAIL_SERVER_IMAP_HOST": "${MCP_EMAIL_SERVER_IMAP_HOST}",
+        "MCP_EMAIL_SERVER_IMAP_PORT": "${MCP_EMAIL_SERVER_IMAP_PORT}",
+        "MCP_EMAIL_SERVER_SMTP_HOST": "${MCP_EMAIL_SERVER_SMTP_HOST}",
+        "MCP_EMAIL_SERVER_SMTP_PORT": "${MCP_EMAIL_SERVER_SMTP_PORT}"
+      }
+    },
+    "vitest": {
+      "command": "npx",
+      "args": ["-y", "@djankies/vitest-mcp"]
+    },
+    "fast-filesystem": {
+      "command": "npx",
+      "args": ["-y", "fast-filesystem-mcp"],
+      "env": {
+        "CREATE_BACKUP_FILES": "false"
+      }
+    },
+    "astro-docs": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://mcp.docs.astro.build/mcp"]
+    },
+    "awslabs.cdk-mcp-server": {
+      "command": "uvx",
+      "args": ["awslabs.cdk-mcp-server@latest"],
+      "env": {
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      }
+    },
+    "awslabs.aws-iac-mcp-server": {
+      "command": "uvx",
+      "args": ["awslabs.aws-iac-mcp-server@latest"],
+      "env": {
+        "AWS_PROFILE": "mucl-main",
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      }
+    },
+    "awslabs.aws-documentation-mcp-server": {
+      "command": "uvx",
+      "args": ["awslabs.aws-documentation-mcp-server@latest"],
+      "env": {
+        "FASTMCP_LOG_LEVEL": "ERROR",
+        "AWS_DOCUMENTATION_PARTITION": "aws",
+        "MCP_USER_AGENT": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
+      }
+    },
+    "awslabs.aws-api-mcp-server": {
+      "command": "uvx",
+      "args": ["awslabs.aws-api-mcp-server@latest"],
+      "env": {
+        "AWS_REGION": "eu-west-2"
+      }
+    },
+    "context7": {
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "${CONTEXT7_API_KEY}"
+      }
+    },
+    "github": {
+      "url": "https://api.githubcopilot.com/mcp/",
+      "headers": {
+        "Authorization": "Bearer ${GITHUB_BEARER_TOKEN}"
+      }
+    },
+    "obsidian": {
+      "command": "uvx",
+      "args": ["mcp-obsidian"],
+      "env": {
+        "OBSIDIAN_API_KEY": "${OBSIDIAN_API_KEY}",
+        "OBSIDIAN_HOST": "${OBSIDIAN_HOST}",
+        "OBSIDIAN_PORT": "${OBSIDIAN_PORT}"
+      }
+    },
+    "exa": {
+      "url": "https://mcp.exa.ai/mcp",
+      "headers": {
+        "EXA_API_KEY": "${EXA_API_KEY}"
+      }
+    },
+    "backlog": {
+      "command": "backlog",
+      "args": ["mcp", "start"]
+    }
+  }
+}
